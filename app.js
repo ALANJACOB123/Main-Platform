@@ -18,17 +18,10 @@ const hint = document.getElementById("hint");
 const nextBtn = document.getElementById("next-btn");
 
 let spaceBarPressed = true;
-let thePageIsLoaded =
-  false && localStorage.getItem("thePageIsLoaded") === null;
 
-console.log(localStorage.getItem("thePageIsLoaded") === null);
-console.log(localStorage.getItem("thePageIsLoaded"));
-
-localStorage.setItem("thePageIsLoaded", "true");
-
-// document.addEventListener("contextmenu", (e) => {
-//   e.preventDefault();
-// });
+document.addEventListener("contextmenu", (e) => {
+  e.preventDefault();
+});
 
 document.onkeydown = function () {
   switch (event.keyCode) {
@@ -42,21 +35,20 @@ document.onkeydown = function () {
         event.keyCode = 0;
         return false;
       }
+    case 67: //C button
+      if (event.ctrlKey) {
+        event.returnValue = false;
+        event.keyCode = 0;
+        return false;
+      }
   }
 };
 
-// document.addEventListener("visibilitychange", () => {
-//   if (document.hidden) {
-//     window.close();
-//   }
-// });
-
-window.onload = () => {
-  if (thePageIsLoaded) {
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) {
     window.close();
   }
-  thePageIsLoaded = localStorage.getItem("thePageIsLoaded");
-};
+});
 
 // start
 
@@ -242,6 +234,7 @@ function showNextQuestions() {
       window.close();
     }, 6500);
   } else {
+    answer.focus();
     question.innerText = questions[questionNumber].question;
     hint.innerText = questions[questionNumber].hint;
     questionNumber += 1;
