@@ -24,10 +24,11 @@
       rgba(0, 0, 0, 0.4),
       rgba(0, 0, 0, 0.6)
     ),
-    url("./img/pexels-ylanite-koppens-796607.jpg") center/cover no-repeat fixed;
+    url("./img/background-img.jpg") center/cover no-repeat fixed;
   transition: transform 1s linear;
   display: grid;
   place-items: center;
+  display: none;
 }
 
 .curtain-contents {
@@ -178,10 +179,10 @@
 
 .sidebar {
   position: absolute;
-  top: 53px;
+  top: 64px;
   left: 0;
   width: 300px;
-  height: calc(100vh - 53px);
+  height: calc(100vh - 64px);
   transform: translateX(-100%);
   background-color: black;
   transition: transform 0.3s linear;
@@ -222,6 +223,12 @@
   background: red;
   -webkit-clip-path: circle(49.7% at 50% 100%);
   clip-path: circle(49.7% at 50% 100%);
+  transition: width 3s linear;
+}
+
+.clip-path1:hover {
+  outline: 2px solid red;
+  outline-offset: 5px;
 }
 
 .clip-path2 {
@@ -268,6 +275,11 @@
   background: blue;
   -webkit-clip-path: circle(43.4% at 50% 52%);
   clip-path: circle(43.4% at 50% 52%);
+}
+
+.clip-path5:hover {
+  outline: 2px solid red;
+  outline-offset: 10px;
 }
 
 .success {

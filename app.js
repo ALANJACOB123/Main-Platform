@@ -18,6 +18,45 @@ const hint = document.getElementById("hint");
 const nextBtn = document.getElementById("next-btn");
 
 let spaceBarPressed = true;
+let thePageIsLoaded =
+  false && localStorage.getItem("thePageIsLoaded") === null;
+
+console.log(localStorage.getItem("thePageIsLoaded") === null);
+console.log(localStorage.getItem("thePageIsLoaded"));
+
+localStorage.setItem("thePageIsLoaded", "true");
+
+// document.addEventListener("contextmenu", (e) => {
+//   e.preventDefault();
+// });
+
+document.onkeydown = function () {
+  switch (event.keyCode) {
+    case 116: //F5 button
+      event.returnValue = false;
+      event.keyCode = 0;
+      return false;
+    case 82: //R button
+      if (event.ctrlKey) {
+        event.returnValue = false;
+        event.keyCode = 0;
+        return false;
+      }
+  }
+};
+
+// document.addEventListener("visibilitychange", () => {
+//   if (document.hidden) {
+//     window.close();
+//   }
+// });
+
+window.onload = () => {
+  if (thePageIsLoaded) {
+    window.close();
+  }
+  thePageIsLoaded = localStorage.getItem("thePageIsLoaded");
+};
 
 // start
 
@@ -199,6 +238,9 @@ function showNextQuestions() {
     `;
     start();
     stop();
+    setTimeout(() => {
+      window.close();
+    }, 6500);
   } else {
     question.innerText = questions[questionNumber].question;
     hint.innerText = questions[questionNumber].hint;
