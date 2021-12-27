@@ -16,8 +16,13 @@ const answer = document.getElementById("answer");
 const question = document.getElementById("question");
 const hint = document.getElementById("hint");
 const nextBtn = document.getElementById("next-btn");
+const minute = document.getElementById("min");
+const second = document.getElementById("sec");
 
 let spaceBarPressed = true;
+let minutes = 1;
+let seconds = 00;
+minute.textContent = minutes;
 
 document.addEventListener("contextmenu", (e) => {
   e.preventDefault();
@@ -128,6 +133,31 @@ closeSidebar.addEventListener("click", () => {
   sidebar.classList.remove("show");
 });
 
+function startTheCounter() {
+  if (seconds === 0 && minutes > 0) {
+    minutes--;
+    seconds = 60;
+  }
+  seconds--;
+  if (minutes === 0 && seconds === 0) {
+    clearInterval(myTimer);
+    examSection.style.display = "none";
+    navbar.style.display = "none";
+    curtain.style.transform = "translateY(0px)";
+    curtain.firstElementChild.innerHTML = `
+    <p class="last-text">👎Your time is Up👎</p>
+    <br />
+    <p class="last-text">📃Results will be Announced Shortly📃</p>
+    <br />
+    `;
+    setTimeout(() => {
+      window.close();
+    }, 5000);
+  }
+  minute.textContent = minutes;
+  second.textContent = seconds;
+}
+
 function checkNumber(input) {
   var phoneno = /^\d{10}$/;
   if (input.match(phoneno)) {
@@ -214,6 +244,9 @@ submitBtn.addEventListener("click", (e) => {
     homeSection.style.display = "none";
     clipPath.style.display = "none";
     examSection.style.display = "block";
+    myTimer = setInterval(() => {
+      startTheCounter();
+    }, 1000);
   }
 });
 
