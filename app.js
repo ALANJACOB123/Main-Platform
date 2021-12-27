@@ -40,7 +40,17 @@ document.onkeydown = function () {
         event.keyCode = 0;
         return false;
       }
-    case 67: //C button
+    case 123: //F12 button
+      event.returnValue = false;
+      event.keyCode = 0;
+      return false;
+    case 74:
+      if (event.ctrlKey) {
+        event.returnValue = false;
+        event.keyCode = 0;
+        return false;
+      }
+    case 73:
       if (event.ctrlKey) {
         event.returnValue = false;
         event.keyCode = 0;
