@@ -14,19 +14,18 @@ const clipPath = document.getElementById("clip-path");
 const examSection = document.getElementById("exam-section");
 const answer = document.getElementById("answer");
 const question = document.getElementById("question");
-const hint = document.getElementById("hint");
 const nextBtn = document.getElementById("next-btn");
 const minute = document.getElementById("min");
 const second = document.getElementById("sec");
 
 let spaceBarPressed = true;
-let minutes = 1;
+let minutes = 60;
 let seconds = 00;
 minute.textContent = minutes;
 
-document.addEventListener("contextmenu", (e) => {
-  e.preventDefault();
-});
+// document.addEventListener("contextmenu", (e) => {
+//   e.preventDefault();
+// });
 
 document.onkeydown = function () {
   switch (event.keyCode) {
@@ -59,11 +58,11 @@ document.onkeydown = function () {
   }
 };
 
-document.addEventListener("visibilitychange", () => {
-  if (document.hidden) {
-    window.close();
-  }
-});
+// document.addEventListener("visibilitychange", () => {
+//   if (document.hidden) {
+//     window.close();
+//   }
+// });
 
 // start
 
@@ -112,16 +111,57 @@ let questionNumber = 0;
 
 const questions = [
   {
-    question: "Hello1",
-    hint: "H1",
+    question: `Write a program in C to convert given number of days in terms of Years, Months and  Days
+      
+      For example:-
+
+      Enter the number of days :- 560
+      1 year
+      6 months
+      15 days
+      `,
   },
   {
     question: "Hello2",
-    hint: "H2",
   },
   {
     question: "Hello3",
-    hint: "H3",
+  },
+  {
+    question: `Write a C program to print the left view of binary tree
+    
+      Given a Binary Tree, print left view of it. Left view of a Binary Tree is set of nodes visible when tree is visited from left side.
+
+      For example :-
+
+      input: 
+          ____1
+         ___/ \\
+        __2__3
+       _/_\\ 
+      3__4
+      
+      Output: 1 2 3
+    `,
+  },
+  {
+    question: `Write a program in C to print the given pattern
+      
+      The pattern to be printed:-
+
+      ******
+      *****
+      ****
+      ***
+      **
+      *
+      * 
+      **
+      ***
+      ****
+      *****
+      ******
+    `,
   },
 ];
 
@@ -279,7 +319,6 @@ function showNextQuestions() {
   } else {
     answer.focus();
     question.innerText = questions[questionNumber].question;
-    hint.innerText = questions[questionNumber].hint;
     questionNumber += 1;
   }
 }
@@ -295,7 +334,6 @@ answer.addEventListener("input", (e) => {
 nextBtn.addEventListener("click", () => {
   sendAnswerToDatabase(answer.value, firstName.value.trim());
   question.innerText = "";
-  hint.innerText = "";
   answer.value = "";
   showNextQuestions();
 });

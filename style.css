@@ -295,10 +295,9 @@
 .bg-img {
   position: absolute;
   bottom: 0;
-  left: 50%;
-  transform: translate(-50%);
-  width: 200px;
-  height: 200px;
+  left: 0;
+  width: 150px;
+  height: 150px;
   z-index: -100;
 }
 
@@ -338,11 +337,15 @@
   }
 }
 
-.time-container{
+.time-container {
   background: #d1d5db;
   width: 80px;
   text-align: center;
   border-radius: 10px;
   padding: 0.25rem;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+#question {
+  height: 60vh;
 }
