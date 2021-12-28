@@ -23,9 +23,9 @@ let minutes = 60;
 let seconds = 00;
 minute.textContent = minutes;
 
-// document.addEventListener("contextmenu", (e) => {
-//   e.preventDefault();
-// });
+document.addEventListener("contextmenu", (e) => {
+  e.preventDefault();
+});
 
 document.onkeydown = function () {
   switch (event.keyCode) {
@@ -58,11 +58,11 @@ document.onkeydown = function () {
   }
 };
 
-// document.addEventListener("visibilitychange", () => {
-//   if (document.hidden) {
-//     window.close();
-//   }
-// });
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) {
+    window.close();
+  }
+});
 
 // start
 
