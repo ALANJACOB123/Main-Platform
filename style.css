@@ -1,5 +1,11 @@
+/* google font */
 @import url("https://fonts.googleapis.com/css2?family=Pushster&family=Shizuru&display=swap");
 
+/*
+======
+Global CSS
+====== 
+*/
 * {
   margin: 0px;
   box-sizing: border-box;
@@ -9,6 +15,11 @@
   --transition: display 0.3s linear;
 }
 
+/*
+======
+Curtain CSS
+======
+*/
 .curtain {
   position: absolute;
   top: 0;
@@ -59,27 +70,12 @@
   animation: blink 2s infinite;
 }
 
-@keyframes slide {
-  0% {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0px);
-    opacity: 1;
-  }
-}
+/*
+======
+Loader CSS
+======
+*/
 
-@keyframes blink {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-/* loader Css */
 .middle {
   top: 50%;
   left: 50%;
@@ -122,20 +118,11 @@
   animation-delay: 0.8s;
 }
 
-@keyframes loader {
-  0% {
-    transform: scaleY(0.1);
-    background: black;
-  }
-  50% {
-    transform: scaleY(1);
-    background: black;
-  }
-  100% {
-    transform: scaleY(0.1);
-    background: transparent;
-  }
-}
+/*
+======
+Navbar CSS
+======
+*/
 
 #navbar {
   display: none;
@@ -152,6 +139,12 @@
 .nav-link:hover {
   cursor: pointer;
 }
+
+/*
+======
+Backdrop CSS
+======
+*/
 
 .backdrop {
   position: absolute;
@@ -175,6 +168,12 @@
   display: block;
 }
 
+/*
+======
+Sidebar CSS
+======
+*/
+
 .sidebar {
   position: absolute;
   top: 64px;
@@ -191,11 +190,11 @@
   transform: translateX(0px);
 }
 
-.section-center {
-  padding: 2rem;
-  width: 100%;
-  height: calc(100vh - 56px);
-}
+/*
+======
+home section CSS
+======
+*/
 
 #home-section {
   display: none;
@@ -205,6 +204,12 @@
 #home-section .home-inner {
   padding-top: 150px;
 }
+
+/*
+======
+clip path CSS
+======
+*/
 
 #clip-path {
   display: none;
@@ -222,11 +227,6 @@
   -webkit-clip-path: circle(49.7% at 50% 100%);
   clip-path: circle(49.7% at 50% 100%);
   transition: width 3s linear;
-}
-
-.clip-path1:hover {
-  outline: 2px solid red;
-  outline-offset: 5px;
 }
 
 .clip-path2 {
@@ -275,11 +275,6 @@
   clip-path: circle(43.4% at 50% 52%);
 }
 
-.clip-path5:hover {
-  outline: 2px solid red;
-  outline-offset: 10px;
-}
-
 .success {
   border: 2px solid green !important;
 }
@@ -287,6 +282,12 @@
 .danger {
   border: 2px solid red !important;
 }
+
+/*
+======
+exam section CSS
+======
+*/
 
 #exam-section {
   display: none;
@@ -328,15 +329,6 @@
   animation: show 2s 1;
 }
 
-@keyframes show {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
 .time-container {
   background: #d1d5db;
   width: 80px;
@@ -348,4 +340,54 @@
 
 #question {
   height: 60vh;
+}
+
+/*
+======
+Animations
+======
+*/
+
+@keyframes slide {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes loader {
+  0% {
+    transform: scaleY(0.1);
+    background: black;
+  }
+  50% {
+    transform: scaleY(1);
+    background: black;
+  }
+  100% {
+    transform: scaleY(0.1);
+    background: transparent;
+  }
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

@@ -1,3 +1,4 @@
+// DOM elements
 const curtain = document.getElementById("curtain");
 const navbar = document.getElementById("navbar");
 const openSidebar = document.getElementById("open");
@@ -18,100 +19,15 @@ const nextBtn = document.getElementById("next-btn");
 const minute = document.getElementById("min");
 const second = document.getElementById("sec");
 
+// variables
 let spaceBarPressed = true;
 let minutes = 60;
 let seconds = 00;
 minute.textContent = minutes;
-
-// document.addEventListener("contextmenu", (e) => {
-//   e.preventDefault();
-// });
-
-document.onkeydown = function () {
-  switch (event.keyCode) {
-    case 116: //F5 button
-      event.returnValue = false;
-      event.keyCode = 0;
-      return false;
-    case 82: //R button
-      if (event.ctrlKey) {
-        event.returnValue = false;
-        event.keyCode = 0;
-        return false;
-      }
-      else{
-        return true;
-      }
-    case 123: //F12 button
-      event.returnValue = false;
-      event.keyCode = 0;
-      return false;
-    case 74:
-      if (event.ctrlKey) {
-        event.returnValue = false;
-        event.keyCode = 0;
-        return false;
-      }
-    case 73:
-      if (event.ctrlKey) {
-        event.returnValue = false;
-        event.keyCode = 0;
-        return false;
-      }
-  }
-};
-
-// document.addEventListener("visibilitychange", () => {
-//   if (document.hidden) {
-//     window.close();
-//   }
-// });
-
-// start
-
-const start = () => {
-  setTimeout(function () {
-    confetti.start();
-  }, 1000); // 1000 is time that after 1 second start the confetti ( 1000 = 1 sec)
-};
-
-//  Stop
-
-const stop = () => {
-  setTimeout(function () {
-    confetti.stop();
-  }, 3000); // 5000 is time that after 5 second stop the confetti ( 5000 = 5 sec)
-};
-
-start();
-stop();
-
-function showTheLoader() {
-  setTimeout(() => {
-    loader.style.opacity = "1";
-  }, 1000);
-  setTimeout(() => {
-    loader.style.opacity = "0";
-  }, 3000);
-  setTimeout(() => {
-    navbar.style.display = "block";
-    homeSection.style.display = "block";
-    clipPath.style.display = "block";
-  }, 3500);
-}
-
-window.addEventListener("keypress", (e) => {
-  if (e.key === " " && spaceBarPressed) {
-    spaceBarPressed = false;
-    confetti.stop();
-    showTheLoader();
-    curtain.style.transform = "translateY(-100%)";
-  }
-});
-
 answer.focus();
 let questionNumber = 0;
 
+// Array of questions
 const questions = [
   {
     question: `Write a program in C to convert given number of days in terms of Years, Months and  Days
@@ -168,24 +84,50 @@ const questions = [
   },
 ];
 
+// start the confetti
+const start = () => {
+  setTimeout(function () {
+    confetti.start();
+  }, 1000);
+};
+
+//  Stop the confetti
+const stop = () => {
+  setTimeout(function () {
+    confetti.stop();
+  }, 3000);
+};
+
+// calling the confetti functions
+start();
+stop();
+
+// To show the loading spinner
+function showTheLoader() {
+  setTimeout(() => {
+    loader.style.opacity = "1";
+  }, 1000);
+  setTimeout(() => {
+    loader.style.opacity = "0";
+  }, 3000);
+  setTimeout(() => {
+    navbar.style.display = "block";
+    homeSection.style.display = "block";
+    clipPath.style.display = "block";
+  }, 3500);
+}
+
+// To add the backdrop
 function addBackdrop() {
   backdrop.classList.add("show");
 }
 
+// to remove the backdrop
 function removeBackdrop() {
   backdrop.classList.remove("show");
 }
 
-openSidebar.addEventListener("click", () => {
-  addBackdrop();
-  sidebar.classList.add("show");
-});
-
-closeSidebar.addEventListener("click", () => {
-  removeBackdrop();
-  sidebar.classList.remove("show");
-});
-
+// To start the timer
 function startTheCounter() {
   if (seconds === 0 && minutes > 0) {
     minutes--;
@@ -211,6 +153,7 @@ function startTheCounter() {
   second.textContent = seconds;
 }
 
+// To check for the valid phone number
 function checkNumber(input) {
   var phoneno = /^\d{10}$/;
   if (input.match(phoneno)) {
@@ -224,6 +167,7 @@ function checkNumber(input) {
   }
 }
 
+// To check for valid email
 function checkEmail(input) {
   const re =
     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -237,6 +181,7 @@ function checkEmail(input) {
   }
 }
 
+// To check for the valid names
 function validateInputs() {
   if (firstName.value.trim() === "" && lastName.value.trim() === "") {
     firstName.classList.add("danger");
@@ -251,6 +196,7 @@ function validateInputs() {
   }
 }
 
+// To send the user details to the database
 function sendInputToDatabase(fName, lName, email, phone) {
   fetch(`https://cs-project-demo-default-rtdb.firebaseio.com/${fName}.json`, {
     method: "POST",
@@ -265,6 +211,7 @@ function sendInputToDatabase(fName, lName, email, phone) {
   });
 }
 
+// To send the user answers to the datatbase
 function sendAnswerToDatabase(input, fName) {
   fetch(`https://cs-project-demo-default-rtdb.firebaseio.com/${fName}.json`, {
     method: "POST",
@@ -278,6 +225,101 @@ function sendAnswerToDatabase(input, fName) {
   });
 }
 
+// To show the next question in the exam container
+function showNextQuestions() {
+  if (questions.length <= questionNumber) {
+    examSection.style.display = "none";
+    navbar.style.display = "none";
+    curtain.style.transform = "translateY(0px)";
+    curtain.firstElementChild.innerHTML = `
+    <p class="last-text">🎉Successfully Completed Mains Exam🎉</p>
+    <br />
+    <p class="last-text">📃Results will be Announced Shortly📃</p>
+    <br />
+    `;
+    start();
+    stop();
+    setTimeout(() => {
+      window.close();
+    }, 6500);
+  } else {
+    answer.focus();
+    question.innerText = questions[questionNumber].question;
+    questionNumber += 1;
+  }
+}
+
+// Event Handlers
+
+// To prevent Right click
+document.addEventListener("contextmenu", (e) => {
+  e.preventDefault();
+});
+
+// To prevent Keyboard shortcuts
+document.onkeydown = function () {
+  switch (event.keyCode) {
+    case 116: //F5 button
+      event.returnValue = false;
+      event.keyCode = 0;
+      return false;
+    case 82: //R button
+      if (event.ctrlKey) {
+        event.returnValue = false;
+        event.keyCode = 0;
+        return false;
+      } else {
+        return true;
+      }
+    case 123: //F12 button
+      event.returnValue = false;
+      event.keyCode = 0;
+      return false;
+    case 74:
+      if (event.ctrlKey) {
+        event.returnValue = false;
+        event.keyCode = 0;
+        return false;
+      }
+    case 73:
+      if (event.ctrlKey) {
+        event.returnValue = false;
+        event.keyCode = 0;
+        return false;
+      }
+  }
+};
+
+// To pervent reload and switching windows
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) {
+    window.close();
+  }
+});
+
+// To raise the curtain
+window.addEventListener("keypress", (e) => {
+  if (e.key === " " && spaceBarPressed) {
+    spaceBarPressed = false;
+    confetti.stop();
+    showTheLoader();
+    curtain.style.transform = "translateY(-100%)";
+  }
+});
+
+// To open the sidebar
+openSidebar.addEventListener("click", () => {
+  addBackdrop();
+  sidebar.classList.add("show");
+});
+
+// To close the sidebar
+closeSidebar.addEventListener("click", () => {
+  removeBackdrop();
+  sidebar.classList.remove("show");
+});
+
+// To submit the form and send the details to database and show the exam container
 submitBtn.addEventListener("click", (e) => {
   e.preventDefault();
   validateInputs();
@@ -303,29 +345,7 @@ submitBtn.addEventListener("click", (e) => {
   }
 });
 
-function showNextQuestions() {
-  if (questions.length <= questionNumber) {
-    examSection.style.display = "none";
-    navbar.style.display = "none";
-    curtain.style.transform = "translateY(0px)";
-    curtain.firstElementChild.innerHTML = `
-    <p class="last-text">🎉Successfully Completed Mains Exam🎉</p>
-    <br />
-    <p class="last-text">📃Results will be Announced Shortly📃</p>
-    <br />
-    `;
-    start();
-    stop();
-    setTimeout(() => {
-      window.close();
-    }, 6500);
-  } else {
-    answer.focus();
-    question.innerText = questions[questionNumber].question;
-    questionNumber += 1;
-  }
-}
-
+// To check if any answer is given by the user
 answer.addEventListener("input", (e) => {
   if (e.target.value === "") {
     nextBtn.disabled = true;
@@ -334,6 +354,7 @@ answer.addEventListener("input", (e) => {
   }
 });
 
+// To submit the current answer and go to the next question
 nextBtn.addEventListener("click", () => {
   sendAnswerToDatabase(answer.value, firstName.value.trim());
   question.innerText = "";
@@ -341,4 +362,5 @@ nextBtn.addEventListener("click", () => {
   showNextQuestions();
 });
 
+// Function calls
 showNextQuestions();

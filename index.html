@@ -4,12 +4,15 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- fav-icon link -->
     <link
       rel="shortcut icon"
       href="./img/favicon-icon.png"
       type="image/x-icon"
     />
+    <!-- style sheet link -->
     <link rel="stylesheet" href="./style.css" />
+    <!-- booststrap cdn link -->
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
@@ -19,6 +22,7 @@
     <title>clash Of Geeks</title>
   </head>
   <body>
+    <!-- start of curtain element -->
     <div class="curtain" id="curtain">
       <div class="curtain-contents">
         <p class="text-1">🎉Congragulations on clearing the preliminaries🎉</p>
@@ -28,7 +32,8 @@
         <p class="continue-text" id="space">press space to continue</p>
       </div>
     </div>
-    <!-- loader -->
+    <!-- end of curtain element -->
+    <!-- start of loader -->
     <div class="middle" id="loader">
       <div class="bar bar1"></div>
       <div class="bar bar2"></div>
@@ -40,26 +45,20 @@
       <div class="bar bar8"></div>
     </div>
     <!-- end of loader -->
+    <!-- start of navbar -->
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark" id="navbar">
       <div class="container">
         <img src="./img/logo.png" alt="logo" class="img-logo" />
         <a class="navbar-brand text-white">Clash Of Geeks</a>
-        <button
-          class="navbar-toggler"
-          data-toggle="collapse"
-          data-target="#navbarCollapse"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
               <a class="nav-link border-left h5 close" id="open">Rules</a>
             </li>
           </ul>
-        </div>
       </div>
     </nav>
+    <!-- end of navbar -->
+    <!-- start of home section -->
     <header id="home-section">
       <div class="home-inner container">
         <div class="row">
@@ -123,7 +122,8 @@
         </div>
       </div>
     </header>
-    <!-- clip path section -->
+    <!-- end of home section -->
+    <!-- start of clip path section -->
     <div id="clip-path">
       <div class="clip-path1"></div>
       <div class="clip-path2"></div>
@@ -132,6 +132,7 @@
       <div class="clip-path5"></div>
     </div>
     <!-- end of clip path section -->
+    <!-- start of exam section -->
     <section id="exam-section">
       <img src="./img/logo.png" alt="bg-img" class="bg-img" />
       <div class="section-inner">
@@ -169,7 +170,11 @@
         </div>
       </div>
     </section>
+    <!-- end of exam section -->
+    <!-- start of backdrop -->
     <div class="backdrop" id="backdrop"></div>
+    <!-- end of backdrop -->
+    <!-- start of sidebar -->
     <div class="sidebar" id="sidebar">
       <div class="container">
         <div class="row">
@@ -203,22 +208,28 @@
         </div>
       </div>
     </div>
+    <!-- end of sidebar -->
+    <!-- cdn link of jquery -->
     <script
       src="http://code.jquery.com/jquery-3.3.1.min.js"
       integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
       crossorigin="anonymous"
     ></script>
+    <!-- cdn link of popper -->
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
       integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
       crossorigin="anonymous"
     ></script>
+    <!-- cdn link of bootstrap js -->
     <script
       src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
       integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
       crossorigin="anonymous"
     ></script>
+    <!-- link of confetti js -->
     <script src="./confetti.js"></script>
+    <!-- link of script js -->
     <script src="./app.js"></script>
   </body>
 </html>
