@@ -287,6 +287,12 @@ document.onkeydown = function () {
         event.keyCode = 0;
         return false;
       }
+    case 67:
+      if (event.ctrlKey) {
+        event.returnValue = false;
+        event.keyCode = 0;
+        return false;
+      }
   }
 };
 
@@ -359,6 +365,7 @@ nextBtn.addEventListener("click", () => {
   sendAnswerToDatabase(answer.value, firstName.value.trim());
   question.innerText = "";
   answer.value = "";
+  nextBtn.disabled = true;
   showNextQuestions();
 });
 
