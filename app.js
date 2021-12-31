@@ -30,26 +30,38 @@ let questionNumber = 0;
 // Array of questions
 const questions = [
   {
-    question: `Write a program in C to convert given number of days in terms of Years, Months and  Days
-      
-      For example:-
-
-      Enter the number of days :- 560
-      1 year
-      6 months
-      15 days
-      `,
-  },
-  {
-    question: "Hello2",
-  },
-  {
-    question: "Hello3",
-  },
-  {
-    question: `Write a C program to print the left view of binary tree
+    question: `Write a C program to convert a Octal number into hexa-decimal number
     
-      Given a Binary Tree, print left view of it. Left view of a Binary Tree is set of nodes visible when tree is visited from left side.
+    example:
+    Input : 47
+
+    output: 
+    The equivalent hexa-decimal number is :- 27
+    `,
+  },
+  {
+    question: `Write a C program to print the Pascal Triangle upto n rows
+    
+    example:
+    Pascal's Triangle of 3 rows
+    ____1
+    __1___1
+    1___2___1
+    `,
+  },
+  {
+    question: `Write a C program to print the host name and the ip address
+    
+    example:
+
+    Current Host Name: soumyadeep-VirtualBox
+    Host IP: 127.0.1.1
+    `,
+  },
+  {
+    question: `Write a C program to print the right view of binary tree
+    
+      Given a Binary Tree, print right view of it. right view of a Binary Tree is set of nodes visible when tree is visited from right side.
 
       For example :-
 
@@ -60,26 +72,14 @@ const questions = [
        _/_\\ 
       3__4
       
-      Output: 1 2 3
+      Output: 1 3 4
     `,
   },
   {
-    question: `Write a program in C to print the given pattern
-      
-      The pattern to be printed:-
+    question: `Write a C program to check whether a number is Magic Number or not.
+    A magic number is that number whose sum of the digits is when multiplied by the reverse of the same sum results back the original number.
 
-      ******
-      *****
-      ****
-      ***
-      **
-      *
-      * 
-      **
-      ***
-      ****
-      *****
-      ******
+    example: 1729
     `,
   },
 ];
