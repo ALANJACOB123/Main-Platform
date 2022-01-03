@@ -49,7 +49,7 @@ Curtain CSS
   align-items: center;
 }
 .curtain-contents p {
-  max-width: 90vw;
+  max-width: 100vw;
   font-size: 4rem;
   font-family: "Pushster", cursive;
   color: whitesmoke;
