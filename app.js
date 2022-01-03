@@ -252,9 +252,9 @@ function showNextQuestions() {
 // Event Handlers
 
 // To prevent Right click
-// document.addEventListener("contextmenu", (e) => {
-//   e.preventDefault();
-// });
+document.addEventListener("contextmenu", (e) => {
+  e.preventDefault();
+});
 
 // To prevent Keyboard shortcuts
 document.onkeydown = function () {
