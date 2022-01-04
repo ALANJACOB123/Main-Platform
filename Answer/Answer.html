@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Answers</title>
+  </head>
+  <body>
+    <section class="section">
+      <div class="container">
+        <div class="name-container">
+          <h1 class="name" id="name"></h1>
+        </div>
+        <div class="answer-container" id="answer-container"></div>
+      </div>
+    </section>
+    <script type="module">
+      const name = document.getElementById("name");
+      const container = document.getElementById("answer-container");
+
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyAP79rw_wzVSzHCfJSo1s7HUcTyHnikak4",
+        authDomain: "cs-project-demo.firebaseapp.com",
+        databaseURL: "https://cs-project-demo-default-rtdb.firebaseio.com",
+        projectId: "cs-project-demo",
+        storageBucket: "cs-project-demo.appspot.com",
+        messagingSenderId: "489829101469",
+        appId: "1:489829101469:web:70aaf6294affd6bcca0974",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+
+      import {
+        getDatabase,
+        ref,
+        get,
+        child,
+      } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
+
+      const db = getDatabase();
+
+      function selectData() {
+        const dbref = ref(db);
+
+        get(child(dbref, "/Jacob")).then((snapshot) => {
+          let data = snapshot.val();
+          displayTheInputs(data);
+        });
+      }
+
+      function displayTheInputs(results) {
+        let values = Object.values(results);
+        name.textContent = values[0].Name;
+        console.log();
+        for (let i = 1; i < values.length; i++) {
+          console.log(values[i].answer);
+          let parentEl = document.createElement("pre");
+          parentEl.classList.add("answer");
+          parentEl.textContent = `Answer (Question ${values[i].Question})
+
+${values[i].answer}`;
+          container.append(parentEl);
+        }
+      }
+      selectData();
+    </script>
+  </body>
+</html>
