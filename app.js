@@ -26,6 +26,7 @@
 // minute.textContent = minutes;
 // answer.focus();
 // let questionNumber = 0;
+// let questionNumberUsed = [0, 1, 2, 3, 4];
 
 // // Array of questions
 // const questions = [
@@ -225,6 +226,13 @@
 //   });
 // }
 
+// // random number generator
+// function questionNumberGenerator() {
+//   return questionNumberUsed[
+//     Math.floor(Math.random() * questionNumberUsed.length)
+//   ];
+// }
+
 // // To show the next question in the exam container
 // function showNextQuestions() {
 //   if (questions.length <= questionNumber) {
@@ -243,8 +251,12 @@
 //       window.close();
 //     }, 6500);
 //   } else {
+//     randomQuestionNumber = questionNumberGenerator();
+//     questionNumberUsed = questionNumberUsed.filter(
+//       (e) => e !== randomQuestionNumber
+//     );
 //     answer.focus();
-//     question.innerText = questions[questionNumber].question;
+//     question.innerText = questions[randomQuestionNumber].question;
 //     questionNumber += 1;
 //   }
 // }
