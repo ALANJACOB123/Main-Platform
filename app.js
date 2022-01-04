@@ -226,6 +226,20 @@
 //   });
 // }
 
+// // To send the users time to the datatbase
+// function sendTimeToDatabase(min, sec, fName) {
+//   fetch(`https://cs-project-demo-default-rtdb.firebaseio.com/${fName}.json`, {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify({
+//       Minutes: min,
+//       Sceonds: sec,
+//     }),
+//   });
+// }
+
 // // random number generator
 // function questionNumberGenerator() {
 //   return questionNumberUsed[
@@ -236,6 +250,7 @@
 // // To show the next question in the exam container
 // function showNextQuestions() {
 //   if (questions.length <= questionNumber) {
+//     sendTimeToDatabase(60 - minutes, 60 -  seconds, firstName.value.trim());
 //     examSection.style.display = "none";
 //     navbar.style.display = "none";
 //     curtain.style.transform = "translateY(0px)";
